@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact - S-Lime Juice</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #22EE22;
+    color: #000;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 70px;
+    background: #FF4000;
+    transform: rotate(-5deg);
+    transform-origin: top left;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+  }
+
+  .nav a {
+    color: #FCFCFC;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+  }
+
+  .content {
+    padding-top: 150px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .email {
+    font-size: 20px;
+    font-weight: bold;
+    color: #623CEA;
+  }
+
+  /* simple illustration box */
+  .drawing {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  svg {
+    width: 320px;
+    height: 260px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="content">
+
+  <h1>Contact</h1>
+
+  <p>
+    If you want to reach out to learn more, collaborate, or have a taste,
+    you can write to us at:
+  </p>
+
+  <p class="email">salt-lime-juice@proton.me</p>
+
+  <!-- DRAWING -->
+  <div class="drawing">
+
+    <!-- simple hand-drawn style SVG -->
+    <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- computer -->
+      <rect x="170" y="120" width="90" height="60" stroke="#623CEA" stroke-width="4"/>
+      <rect x="185" y="135" width="60" height="30" stroke="#623CEA" stroke-width="3"/>
+
+      <!-- desk -->
+      <line x1="150" y1="180" x2="280" y2="180" stroke="#623CEA" stroke-width="4"/>
+
+      <!-- stick figure -->
+      <circle cx="90" cy="80" r="20" stroke="#623CEA" stroke-width="4"/>
+      <line x1="90" y1="100" x2="90" y2="150" stroke="#623CEA" stroke-width="4"/>
+
+      <!-- arms typing -->
+      <line x1="90" y1="120" x2="140" y2="140" stroke="#623CEA" stroke-width="4"/>
+      <line x1="90" y1="120" x2="130" y2="110" stroke="#623CEA" stroke-width="4"/>
+
+      <!-- legs -->
+      <line x1="90" y1="150" x2="70" y2="200" stroke="#623CEA" stroke-width="4"/>
+      <line x1="90" y1="150" x2="110" y2="200" stroke="#623CEA" stroke-width="4"/>
+
+      <!-- email symbol -->
+      <text x="190" y="155" fill="#623CEA" font-size="14">emailing...</text>
+
+    </svg>
+  </div>
+
+</div>
+
+</body>
+</html>

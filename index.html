@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S-Lime Juice</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #22EE22;
+    overflow-x: hidden;
+    color: #000;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110%;
+    height: 70px;
+    background: #FF4000;
+    transform: rotate(-5deg);
+    transform-origin: top left;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    z-index: 10;
+  }
+
+  .nav a {
+    color: #FCFCFC;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+  }
+
+  .nav a:active {
+    color: #623CEA;
+  }
+
+  .content {
+    padding-top: 150px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h1 { font-size: 72px; }
+
+  h2 {
+    margin-top: 50px;
+    font-size: 32px;
+  }
+
+  h3 {
+    margin-top: 25px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+  }
+
+  a.link {
+    color: #623CEA;
+    font-weight: bold;
+  }
+
+  /* EFFECTS */
+  .confetti, .emoji {
+    position: fixed;
+    top: -20px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .confetti {
+    width: 10px;
+    height: 10px;
+    animation: fall 2.5s linear forwards;
+  }
+
+  .emoji {
+    font-size: 26px;
+    animation: fallEmoji 2.5s linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fallEmoji {
+    to {
+      transform: translateY(110vh);
+      opacity: 0;
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<div class="content">
+
+  <!-- HERO -->
+  <h1>S-Lime Juice</h1>
+
+  <p><b>no snails are used in making this product!</b></p>
+
+  <p>Why S-Lime?</p>
+  <p>S is for salt</p>
+  <p>Lime is for lime</p>
+  <p><b>Together they make?</b></p>
+
+  <input id="answer" type="text" placeholder="type your answer..." />
+
+  <p style="margin-top:30px;">
+    no snails but we're still slimey 🥒🥒🥒
+  </p>
+
+  <!-- VALUE PROP -->
+  <h2>What S-Lime Juice is</h2>
+  <p>
+    A salt-cucumber limeade designed for heat, hydration, and refreshment.
+    Built for events, festivals, and hot summer days where people want something simple, fresh, and functional.
+  </p>
+
+  <!-- SCIENCE SECTION -->
+  <h2>Why it actually works.</h2>
+
+  <p>Four ingredients. Ingredient 1: Water... :p </p>
+
+  <h3>2. Salt </h3>
+  <p>
+    When you sweat in the heat, you lose sodium alongside water. Plain water can't replace it — it actually dilutes what's left.
+    The salt in S-Lime restores that balance so your cells absorb and hold fluids properly.
+  </p>
+
+  <h3>3. Lime </h3>
+  <p>
+    Lime brings natural acidity, depth, and a dose of Vitamin C. It rounds out the salt and keeps the drink complex and satisfying,
+    which is why no sweetener is needed. It also supports digestion and helps the body absorb iron from food.
+  </p>
+
+  <h3>4. Cucumber </h3>
+  <p>
+    Cucumber adds a refreshing, low-calorie, water-rich base that makes the drink feel more hydrating and less sugary.
+    The pulp gives a light texture similar to aloe vera drinks.
+  </p>
+
+  <!-- CONTACT -->
+  <h2 id="contact">Book S-Lime Juice</h2>
+
+  <p>
+    If you're an event organizer and want something simple, cool, and sugar-free:
+  </p>
+
+  <p>
+    <a class="link" href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank">
+      👉 Send booking request
+    </a>
+  </p>
+
+</div>
+
+<script>
+const input = document.getElementById("answer");
+let lock = false;
+
+input.addEventListener("input", () => {
+  if (lock) return;
+
+  const val = input.value.trim().toLowerCase();
+
+  if (val === "s-lime") {
+    lock = true;
+    launchConfetti();
+    setTimeout(() => lock = false, 3000);
+  }
+
+  else if (val.length >= 3) {
+    lock = true;
+    launchXRain();
+    setTimeout(() => lock = false, 3000);
+  }
+});
+
+/* CONFETTI */
+function launchConfetti() {
+  for (let i = 0; i < 140; i++) {
+    const el = document.createElement("div");
+    el.className = "confetti";
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.backgroundColor = randomColor();
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+}
+
+/* WRONG ANSWER */
+function launchXRain() {
+  for (let i = 0; i < 90; i++) {
+    const el = document.createElement("div");
+    el.className = "emoji";
+    el.innerText = "❌";
+    el.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 3000);
+  }
+}
+
+function randomColor() {
+  const colors = ["#FF4000", "#FFD700", "#FFFFFF", "#623CEA"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+</script>
+
+</body>
+</html>
